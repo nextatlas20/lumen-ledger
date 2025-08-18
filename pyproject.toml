@@ -1,0 +1,22 @@
+[project]
+name = "lumen-ledger"
+version = "0.1.0"
+description = "Double-entry ledger service for the Lumen billing platform"
+requires-python = ">=3.8"
+dependencies = [
+    "pydantic>=2.5",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+lumen-ledger = "lumen_ledger.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
