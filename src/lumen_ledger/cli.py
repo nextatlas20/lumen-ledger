@@ -17,6 +17,9 @@ def main():
 @click.argument("amount_cents", type=int)
 def post(account, amount_cents):
     """Post a single journal entry."""
+    if amount_cents == 0:
+        click.echo("amount must be non-zero", err=True)
+        sys.exit(2)
     entry = JournalEntry(account=account, amount_cents=amount_cents)
     click.echo(f"posted {entry.amount_cents} to {entry.account}")
 
