@@ -1,6 +1,7 @@
 """Ledger entry primitives."""
 
 from dataclasses import dataclass
+from datetime import timezone
 
 
 @dataclass
@@ -29,3 +30,8 @@ def dedupe_entries(entries):
             seen.add(key)
         kept.append(entry)
     return kept
+
+
+def as_utc(timestamp):
+    """Return the timestamp normalised to UTC."""
+    return timestamp.astimezone(timezone.utc)
