@@ -1,6 +1,7 @@
 """Command line entry point for Lumen Ledger."""
 
 import sys
+from pathlib import Path
 
 import click
 
@@ -22,6 +23,11 @@ def post(account, amount_cents):
         sys.exit(2)
     entry = JournalEntry(account=account, amount_cents=amount_cents)
     click.echo(f"posted {entry.amount_cents} to {entry.account}")
+
+
+def resolve_config_path(value):
+    """Resolve a user supplied config path against the current directory."""
+    return Path(value).expanduser().resolve()
 
 
 if __name__ == "__main__":
