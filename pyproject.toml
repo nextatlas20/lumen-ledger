@@ -2,7 +2,7 @@
 name = "lumen-ledger"
 version = "2.3.1"
 description = "Double-entry ledger service for the Lumen billing platform"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 dependencies = [
     "pydantic>=2.9.2",
     "click>=8.1",
