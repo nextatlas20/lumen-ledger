@@ -35,3 +35,13 @@ def dedupe_entries(entries):
 def as_utc(timestamp):
     """Return the timestamp normalised to UTC."""
     return timestamp.astimezone(timezone.utc)
+
+
+_ACCOUNT_CACHE = {}
+
+
+def canonical_account(name):
+    """Return the canonical account name, memoising lookups."""
+    if name not in _ACCOUNT_CACHE:
+        _ACCOUNT_CACHE[name] = name.strip().lower()
+    return _ACCOUNT_CACHE[name]
