@@ -30,5 +30,13 @@ def resolve_config_path(value):
     return Path(value).expanduser().resolve()
 
 
+@main.command("import")
+@click.argument("path")
+@click.option("--dry-run", is_flag=True, help="Validate the file without posting entries.")
+def import_entries(path, dry_run):
+    """Import journal entries from a CSV file."""
+    click.echo(f"importing {path} (dry_run={dry_run})")
+
+
 if __name__ == "__main__":
     sys.exit(main())
