@@ -7,6 +7,27 @@ The format follows Keep a Changelog and the project adheres to Semantic Versioni
 
 _No unreleased changes recorded._
 
+## [2.4.0] - Unreleased
+
+### Added
+
+- **reports**: add trial balance export in CSV and Parquet
+- **ledger**: require timezone-aware posting timestamps
+
+### Changed
+
+- **posting**: batch journal line validation with a single query
+- **adapters**: extract retry policy into a shared helper
+- **ledger**: cache account lookups for the posting loop
+
+### Fixed
+
+- **ledger**: serialise posting timestamps in UTC
+
+### Removed
+
+- Python 3.8 support is removed; the minimum supported version is 3.10
+
 ## [2.3.1] - 2025-09-12
 
 ### Fixed
